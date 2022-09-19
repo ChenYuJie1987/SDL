@@ -319,7 +319,7 @@ SetupWindowData(_THIS, SDL_Window * window, HWND hwnd, HWND parent, SDL_bool cre
     data->mouse_button_flags = (WPARAM)-1;
     data->last_pointer_update = (LPARAM)-1;
     data->videodata = videodata;
-    data->initializing = SDL_TRUE;
+    data->initializing = SDL_FALSE;
     data->scaling_dpi = WIN_GetScalingDPIForHWND(videodata, hwnd);
 
 #ifdef HIGHDPI_DEBUG
@@ -449,7 +449,7 @@ SetupWindowData(_THIS, SDL_Window * window, HWND hwnd, HWND parent, SDL_bool cre
         window->flags |= SDL_WINDOW_ALLOW_HIGHDPI;
     }
 
-    data->initializing = SDL_FALSE;
+    data->initializing = SDL_TRUE;
 
     /* All done! */
     return 0;
